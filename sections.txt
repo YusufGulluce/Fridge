@@ -24,4 +24,9 @@ Sections:
     18 -> Drinks
     19 -> Coffe & Tea
     20 -> Fish & Sea Food
+    21 -> Choclate
+    22 -> High protein
+    23 -> Healthy Food
 ]
+
+// There are 24 sections

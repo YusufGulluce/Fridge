@@ -27,17 +27,58 @@ public class Recipe {
      *  ]
      */
     public ArrayList<int[]> ingridientList;
+
+    // ***********
+    // READ THIS!!
+    // ***********
+    /*
+     * This variable will store which sections does recipe applied on
+     * 
+     * For example lets say our recipe is a choclate cake.
+     * Then we can say that it is a desert, cake and a choclate from sections. ( See sections.txt )
+     * then it its section list should look like:
+     * sections:
+     * {
+     *      false,
+     *      true,
+     *      false,
+     *      true,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      false,
+     *      true,
+     *      false,
+     *      false,
+     * }
+     * 
+     */
+    public boolean[] sections;
     
     //
     // RECIPE CREATE METHODS
     //
 
-    // This method is for alredy ready ingredient recipes.
-    public Recipe(BufferedImage image, String name, String recipeExplanation, ArrayList<int[]> ingridienList){
+    // This method is for ready ingredient recipes.
+    public Recipe(BufferedImage image, String name, String recipeExplanation, ArrayList<int[]> ingridienList, boolean[] sections){
         this.image = image;
         this.name = name;
         this.recipeExplanation = recipeExplanation;
         this.ingridientList = ingridienList;
+        this.sections = sections;
     }
 
     // This method is for empty ingredient recipes.
@@ -46,6 +87,13 @@ public class Recipe {
         this.name = name;
         this.recipeExplanation = recipeExplanation;
         this.ingridientList = new ArrayList<int[]>();
+        this.sections = new boolean[]{
+            false, false, false, false,
+            false, false, false, false, 
+            false, false, false, false, 
+            false, false, false, false, 
+            false, false, false, false, 
+            false, false, false, false, };
     }
 
     // This method is for adding a ingridient with seperate ID, amount and amount kind.
@@ -76,6 +124,21 @@ public class Recipe {
     // This method is for deleting the given ingredient of ID from the ingredient list.
     public void removeIngredient(float index){
         ingridientList.remove( (int)index );
+    }
+
+    // This method is for enabling a section. See sections.txt
+    public void enableSection(int index){
+        sections[index] = true;
+    }
+
+    // This method is for disabling a section. See sections.txt
+    public void disableSection(int index){
+        sections[index] = false;
+    }
+
+    // This method is for disable if the section is enabled, or disable if the section is enabled. See sections.txt
+    public void changeSectionEnability(int index){
+        sections[index] = !sections[index];
     }
 
 }

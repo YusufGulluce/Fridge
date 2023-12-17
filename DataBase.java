@@ -94,6 +94,11 @@ public class DataBase {
     // RECIPE ATTIRIBUTES
     //
 
+    //TODO Ths method will create a new recipe and return its ID
+    public String createNewRecipe(){
+        return null;
+    }
+
     //TODO This method will get the name of the recipe
     public String getRecipeNameOf(int ID){
         return null;
